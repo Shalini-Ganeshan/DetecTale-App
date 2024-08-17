@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import backgroundImage from '../assets/homebg.jpg';
 import owl from '../assets/owl.png';
-import micImg from '../assets/microphone.png'
+import micImg from '../assets/microphone.png';
 
 const MAX_CHARACTERS = 12;
 
@@ -15,12 +15,13 @@ const SpeakCharacter = () => {
   const navigate = useNavigate();
   const { transcript, resetTranscript } = useSpeechRecognition();
 
+  // Updated useEffect hook with handleAddCharacter in dependencies
   useEffect(() => {
     if (transcript) {
       handleAddCharacter(transcript);
       resetTranscript();
     }
-  }, [transcript, resetTranscript]);
+  }, [transcript, resetTranscript, handleAddCharacter]); 
 
   const handleChange = (index, value) => {
     const newCharacters = [...characters];
@@ -86,9 +87,8 @@ const SpeakCharacter = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="w-full max-w-4xl p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
-        
-      <img src={micImg} alt="micImg" className="w-20 h-20 mx-auto object-cover rounded" />
-        <h1 className="text-2xl mb-6  text-center font-poppins">Speak Your Characters</h1>
+        <img src={micImg} alt="micImg" className="w-20 h-20 mx-auto object-cover rounded" />
+        <h1 className="text-2xl mb-6 text-center font-poppins">Speak Your Characters</h1>
         
         {error && (
           <div className="mb-4 p-4 text-red-800 bg-red-100 rounded border text-center font-poppins border-red-300">
