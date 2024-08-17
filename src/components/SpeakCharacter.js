@@ -15,25 +15,24 @@ const SpeakCharacter = () => {
   const navigate = useNavigate();
   const { transcript, resetTranscript } = useSpeechRecognition();
 
-  // Updated useEffect hook with handleAddCharacter in dependencies
+  const handleAddCharacter = (character = '') => {
+    if (characters.length < MAX_CHARACTERS && character.trim() !== '') {
+      setCharacters([...characters, character]);
+    }
+  };
+
   useEffect(() => {
     if (transcript) {
       handleAddCharacter(transcript);
       resetTranscript();
     }
-  }, [transcript, resetTranscript, handleAddCharacter]); 
+  }, [transcript, resetTranscript, handleAddCharacter]);
 
   const handleChange = (index, value) => {
     const newCharacters = [...characters];
     newCharacters[index] = value;
     setCharacters(newCharacters);
     setError('');
-  };
-
-  const handleAddCharacter = (character = '') => {
-    if (characters.length < MAX_CHARACTERS && character.trim() !== '') {
-      setCharacters([...characters, character]);
-    }
   };
 
   const handleRemoveCharacter = (index) => {
