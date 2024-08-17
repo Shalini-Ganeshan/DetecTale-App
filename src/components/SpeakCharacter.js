@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import backgroundImage from '../assets/homebg.jpg';
@@ -15,11 +15,11 @@ const SpeakCharacter = () => {
   const navigate = useNavigate();
   const { transcript, resetTranscript } = useSpeechRecognition();
 
-  const handleAddCharacter = (character = '') => {
+  const handleAddCharacter = useCallback((character = '') => {
     if (characters.length < MAX_CHARACTERS && character.trim() !== '') {
-      setCharacters([...characters, character]);
+      setCharacters(prevCharacters => [...prevCharacters, character]);
     }
-  };
+  }, [characters]);
 
   useEffect(() => {
     if (transcript) {
