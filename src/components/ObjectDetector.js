@@ -3,6 +3,7 @@ import "@tensorflow/tfjs-backend-cpu";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Select from 'react-select'; 
 import searchimg from '../assets/search.png';
 import cameraIcon from '../assets/camera.png';
 import owl from '../assets/owl.png'; 
@@ -14,9 +15,25 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
   const [predictions, setPredictions] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [story, setStory] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState({ value: 'en', label: 'English' });
   const navigate = useNavigate();
 
   const isEmptyPredictions = !predictions || predictions.length === 0;
+
+  const languageOptions = [
+    { value: 'en', label: 'English' },
+    { value: 'ta', label: 'Tamil' },
+    { value: 'te', label: 'Telugu' },
+    { value: 'kn', label: 'Kannada' },
+    { value: 'ml', label: 'Malayalam' },
+    { value: 'hi', label: 'Hindi' },
+    { value: 'ur', label: 'Urdu' },
+    { value: 'bn', label: 'Bengali' },
+    { value: 'mr', label: 'Marathi' },
+    { value: 'gu', label: 'Gujarati' },
+     { value: 'es', label: 'Spanish' },
+  { value: 'fr', label: 'French' }
+  ];
 
   const openFilePicker = () => {
     if (fileInputRef.current) fileInputRef.current.click();
@@ -42,6 +59,7 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
       return { ...prediction, bbox: [x, y, width, height] };
     });
   };
+ 
 
   const detectObjectsOnImage = async (imageElement, imgSize) => {
     const model = await cocoSsd.load({});
@@ -49,14 +67,10 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
     const normalizedPredictions = normalizePredictions(predictions, imgSize);
     setPredictions(normalizedPredictions);
 
-    // Extract object names for the prompt
     const objectNames = normalizedPredictions.map(prediction => prediction.class);
-
-    // Send the object names to the backend
-    await sendObjectsToBackend(objectNames);
+    await sendObjectsToBackend(objectNames, selectedLanguage.value);
   };
-
-  const readImage = (file) => {
+const readImage = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.onload = () => resolve(fileReader.result);
@@ -91,14 +105,14 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
     };
   };
 
-  const sendObjectsToBackend = async (objects) => {
+  const sendObjectsToBackend = async (objects, language) => {
     try {
       const response = await fetch('https://detectale-backend.netlify.app/.netlify/functions/generateStory', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ objects }),
+        body: JSON.stringify({ objects, language }),
       });
 
       if (!response.ok) {
@@ -106,11 +120,10 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
       }
 
       const data = await response.json();
-      console.log("Data received from backend:", data); // Debugging
+      console.log("Data received from backend:", data);
 
       setStory(data.story);
 
-      // Call onStoryGenerated if it's a function
       if (typeof onStoryGenerated === 'function') {
         onStoryGenerated(data.story);
       }
@@ -121,7 +134,7 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
   };
 
   const handleReadStoryClick = async () => {
-    setLoading(true); // Set loading state while navigating
+    setLoading(true);
     navigate('/story', { state: { story } });
   };
 
@@ -186,6 +199,12 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
             className="hidden"
           />
           <div className="flex flex-col items-center mt-6 space-y-4">
+            <Select
+              value={selectedLanguage}
+              onChange={setSelectedLanguage}
+              options={languageOptions}
+              className="w-full"
+            />
             <button
               onClick={openFilePicker}
               className={`py-2 px-4 border-2 border-transparent bg-yellow-400 text-white text-lg font-semibold rounded-md shadow-md transition-transform transform hover:scale-105 ${isLoading ? 'bg-yellow-300' : 'hover:bg-yellow-500'}`}
@@ -216,7 +235,7 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
                   alt="readingOwlImg"
                   className="w-16 h-16 object-cover rounded"
                 />
-                <div className="mt-2 p-3">
+                <div className="mt-3 p-3">
                   {isLoading ? "Loading..." : "Read Story"}
                 </div>
               </button>
