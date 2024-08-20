@@ -1,17 +1,34 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import Select from 'react-select';
 import backgroundImage from '../assets/homebg.jpg';
 import owl from '../assets/owl.png';
 import micImg from '../assets/microphone.png';
 
 const MAX_CHARACTERS = 12;
 
+const languageOptions = [
+  { value: 'en', label: 'English' },
+  { value: 'ta', label: 'Tamil' },
+  { value: 'te', label: 'Telugu' },
+  { value: 'kn', label: 'Kannada' },
+  { value: 'ml', label: 'Malayalam' },
+  { value: 'hi', label: 'Hindi' },
+  { value: 'ur', label: 'Urdu' },
+  { value: 'bn', label: 'Bengali' },
+  { value: 'mr', label: 'Marathi' },
+  { value: 'gu', label: 'Gujarati' },
+  { value: 'es', label: 'Spanish' },
+  { value: 'fr', label: 'French' },
+];
+
 const SpeakCharacter = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showInputs, setShowInputs] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState({ value: 'en', label: 'English' });
   const navigate = useNavigate();
   const { transcript, resetTranscript } = useSpeechRecognition();
 
@@ -63,7 +80,7 @@ const SpeakCharacter = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ objects: characters.filter(char => char.trim() !== '') }),
+        body: JSON.stringify({ objects: characters.filter(char => char.trim() !== ''), language: selectedLanguage.value }),
       });
 
       if (!response.ok) {
@@ -118,6 +135,12 @@ const SpeakCharacter = () => {
             ))}
           </div>
         )}
+        <Select
+          value={selectedLanguage}
+          onChange={setSelectedLanguage}
+          options={languageOptions}
+          className="mb-6"
+        />
         <div className="flex flex-col items-center space-y-4">
           <div className="flex flex-row space-x-4">
             <button
