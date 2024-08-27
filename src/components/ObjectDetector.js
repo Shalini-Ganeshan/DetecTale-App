@@ -235,7 +235,7 @@ const readImage = (file) => {
                   alt="readingOwlImg"
                   className="w-16 h-16 object-cover rounded"
                 />
-                <div className="mt-3 p-3">
+                <div className="mt-2 p-3">
                   {isLoading ? "Loading..." : "Read Story"}
                 </div>
               </button>
