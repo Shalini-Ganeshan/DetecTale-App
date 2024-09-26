@@ -23,21 +23,21 @@ const Home = () => {
           className="flex flex-col items-center justify-center w-60 h-60 md:w-72 md:h-72 bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
           onClick={() => handleBoxClick('/write-character')}
         >
-          <img src={imgBox1} alt="Box 1" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
+          <img loading="lazy" src={imgBox1} alt="Box 1" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
           <p className="mt-4 text-lg md:text-xl text-gray-700">Write Character</p>
         </div>
         <div
           className="flex flex-col items-center justify-center w-60 h-60 md:w-72 md:h-72 bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
           onClick={() => handleBoxClick('/detector')}
         >
-          <img src={imgBox2} alt="Box 2" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
+          <img loading="lazy" src={imgBox2} alt="Box 2" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
           <p className="mt-4 text-lg md:text-xl text-gray-700">Detect Character</p>
         </div>
         <div
           className="flex flex-col items-center justify-center w-60 h-60 md:w-72 md:h-72 bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
           onClick={() => handleBoxClick('/speak-character')}
         >
-          <img src={imgBox3} alt="Box 2" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
+          <img loading="lazy"  src={imgBox3} alt="Box 2" className="w-36 h-36 md:w-44 md:h-44 object-cover" />
           <p className="mt-4 text-lg md:text-xl text-gray-700">Speak Character</p>
         </div>
       </div>
