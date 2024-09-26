@@ -143,6 +143,7 @@ const readImage = (file) => {
       <div className="bg-white rounded-lg flex shadow-lg flex-col md:flex-row gap-6 border-2 border-purple-500 max-w-4xl w-full md:w-auto mx-auto">
         <div className="flex-shrink-0 md:w-1/3">
           <img
+  loading="lazy"
             src={searchimg}
             alt="detectImg"
             className="w-52 h-52 md:h-44 md:w-44 object-cover rounded md:mr-16 mt-8 md:mt-24 md:ml-8"
@@ -156,6 +157,7 @@ const readImage = (file) => {
                 <img
                   ref={imageRef}
                   src={imgData}
+  loading="lazy"
                   alt="uploadedImg"
                   className="w-full h-full object-cover"
                 />
@@ -187,6 +189,7 @@ const readImage = (file) => {
             ) : (
               <img
                 src={cameraIcon}
+              loading="lazy"
                 alt="camera icon"
                 className="h-24 w-24"
               />
@@ -232,6 +235,7 @@ const readImage = (file) => {
               >
                 <img
                   src={owl}
+             loading="lazy"
                   alt="readingOwlImg"
                   className="w-16 h-16 object-cover rounded"
                 />
