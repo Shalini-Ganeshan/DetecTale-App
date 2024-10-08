@@ -62,6 +62,14 @@ const Share = ({ story }) => {
           <i class="fi fi-rs-dove"></i>
         {/* Twitter SVG */}
       </a>
+<a
+  href={`https://api.whatsapp.com/send?text=${encodedStory}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i class="fi fi-rs-whatsapp"></i>
+  {/* WhatsApp SVG */}
+</a>
 
       {/* Email */}
       <a 
