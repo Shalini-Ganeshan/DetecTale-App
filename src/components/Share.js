@@ -4,36 +4,24 @@ const Toast = ({ message, onClose }) => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
-    }, 3000); 
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [onClose]);
 
   return (
-    <div className="toast">
+    <div className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black text-white p-2 rounded shadow-lg z-50">
       {message}
-      <style jsx>{`
-       .toast {
-      position: fixed;
-      top: 20px;
-       left: 50%;
-      transform: translateX(-50%);
-      background-color: black;
-      color: white; 
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
-      `}</style>
     </div>
   );
 };
 
-const Share = ({ story }) => {
+const Share = ({ story, description }) => {
   const [toastMessage, setToastMessage] = useState('');
+  const encodedStory = encodeURIComponent(story);
+  const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedStory}`;
 
-  const copyToClipboard = async () => {
+  const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(story);
       setToastMessage('Story copied to clipboard!');
@@ -46,14 +34,12 @@ const Share = ({ story }) => {
     setToastMessage('');
   };
 
-  const encodedStory = encodeURIComponent(story);
-
- return (
+  return (
     <div className="flex justify-center items-center space-x-4">
       {/* Copy Button */}
       <button
         onClick={handleCopy}
-        className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
+        className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +53,7 @@ const Share = ({ story }) => {
       {/* Email Button */}
       <a
         href={`mailto:?subject=Check this out!&body=${encodedStory}`}
-        className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
+        className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
       >
         <i className="fi fi-bs-envelope text-gray-800 text-xl"></i>
       </a>
@@ -77,18 +63,19 @@ const Share = ({ story }) => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
+        className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
       >
         <i className="fi fi-bs-whatsapp text-gray-800 text-xl"></i>
       </a>
 
-      {/* twitter Button */}
-       <a
-      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(`${description} - ${hotelName} here:`)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-       className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded">
-        <i className="fi fi-bs-facebook text-gray-800 text-xl"></i>
+      {/* Twitter Button */}
+      <a
+        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodedStory}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
+      >
+        <i className="fi fi-bs-twitter text-gray-800 text-xl"></i>
       </a>
 
       {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} />}
