@@ -35,7 +35,7 @@ const Share = ({ story, description }) => {
   };
 
   return (
-   <div className="flex justify-center items-center space-x-4 p-4 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg">
+   <div className="flex justify-center items-center space-x-4 p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg">
   <div className="flex justify-center items-center space-x-4 p-6 bg-white border-1 border-transparent rounded-lg bg-clip-border">
    
  
