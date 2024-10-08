@@ -41,7 +41,7 @@ const Share = ({ story, description }) => {
         onClick={handleCopy}
         className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
       >
-             <i class="fi fi-bs-copy"></i>
+             <i class="fi fi-bs-copy text-2xl"></i>
        
       </button>
 
