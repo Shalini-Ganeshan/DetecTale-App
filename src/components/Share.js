@@ -16,7 +16,8 @@ const Toast = ({ message, onClose }) => {
        .toast {
       position: fixed;
       top: 20px;
-      right: 20px;
+       left: 50%;
+      transform: translateX(-50%);
       background-color: black;
       color: white; 
       padding: 10px 20px;
