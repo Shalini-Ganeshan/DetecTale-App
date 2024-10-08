@@ -82,12 +82,12 @@ const Share = ({ story }) => {
         <i className="fi fi-bs-whatsapp text-gray-800 text-xl"></i>
       </a>
 
-      {/* Facebook Button */}
+      {/* twitter Button */}
        <a
       href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(`${description} - ${hotelName} here:`)}`}
       target="_blank"
       rel="noopener noreferrer"
-      className=" className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded">
+       className="flex justify-center items-center w-9 h-9 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded">
         <i className="fi fi-bs-facebook text-gray-800 text-xl"></i>
       </a>
 
