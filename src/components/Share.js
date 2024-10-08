@@ -51,37 +51,16 @@ const Share = ({ story }) => {
   return (
     <div className="flex flex-row align-center justify-end gap-5 mt-4">
       <button onClick={copyToClipboard} className="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48">
-          <path fill="#000" d="M32,6H16C14.346,6,13,7.346,13,9v30c0,1.654,1.346,3,3,3h16c1.654,0,3-1.346,3-3V9C35,7.346,33.654,6,32,6z M32,36H16V12h16V36z"/>
-          <path fill="#000" d="M20,0h-6C12.346,0,11,1.346,11,3v6c0,1.654,1.346,3,3,3h6c1.654,0,3-1.346,3-3V3C23,1.346,21.654,0,20,0z"/>
-        </svg>
+       <i class="fi fi-bs-copy"></i>
       </button>
-
-      {/* Facebook */}
-      <a 
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodedStory}&quote=${encodedStory}`} 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        {/* Facebook SVG */}
-      </a>
-
       {/* Twitter */}
       <a 
         href={`https://twitter.com/intent/tweet?text=${encodedStory}`} 
         target="_blank" 
         rel="noopener noreferrer"
       >
+          <i class="fi fi-rs-dove"></i>
         {/* Twitter SVG */}
-      </a>
-
-      {/* Pinterest */}
-      <a 
-        href={`https://pinterest.com/pin/create/button/?description=${encodedStory}`} 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        {/* Pinterest SVG */}
       </a>
 
       {/* Email */}
