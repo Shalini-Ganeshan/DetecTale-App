@@ -42,8 +42,7 @@ const Share = ({ story, description }) => {
         className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
       >
              <i class="fi fi-bs-copy"></i>
-          <path d="M19.207 2.793a1 1 0 00-1.414 0l-5.793 5.793a1 1 0 00-.293.707V12a1 1 0 001 1h3a1 1 0 011 1v2a1 1 0 001 1h3a1 1 0 001-1v-2a1 1 0 00-1-1h-2v-3a1 1 0 00-.293-.707l-5.793-5.793a1 1 0 00-1.414 0L7.5 8.5A1 1 0 007 9.207V10h2a1 1 0 011 1v2H9a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1v-3a1 1 0 00-.293-.707l-5.793-5.793a1 1 0 00-1.414 0l-5.793 5.793a1 1 0 000 1.414l5.793 5.793a1 1 0 001.414 0l5.793-5.793a1 1 0 00.293-.707V9a1 1 0 00-1-1H8V8.793a1 1 0 00.293.707l5.793 5.793a1 1 0 001.414 0l5.793-5.793a1 1 0 000-1.414z" />
-        </svg>
+       
       </button>
 
       {/* Email Button */}
