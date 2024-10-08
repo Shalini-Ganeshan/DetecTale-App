@@ -13,15 +13,17 @@ const Toast = ({ message, onClose }) => {
     <div className="toast">
       {message}
       <style jsx>{`
-        position: fixed;
-  top: 20px; 
-  right: 20px; 
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+       .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: black;
+      color: white; 
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
       `}</style>
     </div>
   );
