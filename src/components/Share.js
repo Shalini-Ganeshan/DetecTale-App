@@ -35,7 +35,11 @@ const Share = ({ story, description }) => {
   };
 
   return (
-    <div className="flex justify-center items-center space-x-4">
+   <div className="flex justify-center items-center space-x-4 p-4 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-lg">
+  <div className="flex justify-center items-center space-x-4 p-4 bg-white border-4 border-transparent rounded-lg bg-clip-border">
+   
+ 
+
       {/* Copy Button */}
       <button
         onClick={handleCopy}
@@ -77,6 +81,7 @@ const Share = ({ story, description }) => {
 
       {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} />}
     </div>
+</div>
   );
 };
 
