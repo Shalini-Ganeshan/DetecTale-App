@@ -42,7 +42,7 @@ const Share = ({ story, theme }) => {
           onClick={handleCopy}
           className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
         >
-          <i className={`fi fi-bs-copy text-2xl ${theme ? 'text-black' : 'text-white'}`}></i>
+          <i className={`fi fi-bs-copy text-2xl ${theme ? 'text-white' :'text-black' }`}></i>
         </button>
 
         {/* WhatsApp Button */}
@@ -52,7 +52,7 @@ const Share = ({ story, theme }) => {
           rel="noopener noreferrer"
           className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
         >
-         <i className={`fab fa-whatsapp text-3xl  ${theme ? 'text-black' : 'text-white'}`}></i>
+         <i className={`fab fa-whatsapp text-3xl  ${theme ? 'text-white' :'text-black' }`}></i>
 
         </a>
 
@@ -61,7 +61,7 @@ const Share = ({ story, theme }) => {
           href={`mailto:?subject=Check this out!&body=${encodedStory}`}
           className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
         >
-          <i className={`fi fi-bs-envelope text-2xl  ${theme ? 'text-black' : 'text-white'}`}></i>
+          <i className={`fi fi-bs-envelope text-2xl  ${theme ? 'text-white' :'text-black' }`}></i>
         </a>
 
         {/* Twitter Button */}
@@ -71,7 +71,7 @@ const Share = ({ story, theme }) => {
           rel="noopener noreferrer"
           className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-200 rounded"
         >
-          <i className={`fi fi-rs-dove text-2xl $ ${theme ? 'text-black' : 'text-white'}`}></i>
+          <i className={`fi fi-rs-dove text-2xl $ ${theme ? 'text-white' :'text-black' }`}></i>
         </a>
 
         {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} />}
