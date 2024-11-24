@@ -72,3 +72,4 @@ const Share = ({ story, theme }) => {
     </div>
   );
 };
+export default Share; 
