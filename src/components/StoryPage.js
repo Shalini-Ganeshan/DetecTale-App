@@ -32,9 +32,9 @@ const StoryPage = () => {
       >
         {darkMode ? 'Light Mode' : 'Dark Mode'}
       </button>
-      <div className="w-full max-w-4xl p-4 md:p-6 rounded-lg shadow-lg">
+      <div className={`w-full max-w-4xl p-4 md:p-6 rounded-lg shadow-lg ${darkMode ? 'bg-yellow-400' : 'bg-gray-700'`}>
         <div className='flex flex-col md:flex-col items-center gap-4 md:gap-8'>
-          <img src={sideImage} loading="lazy" alt="Side" className={`w-32 h-32 md:w-40 md:h-40 object-cover rounded ${darkMode ? 'bg-yellow-400' : 'bg-gray-700'} `} />
+          <img src={sideImage} loading="lazy" alt="Side" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded" />
             <Share story={story} theme={darkMode} /> 
           </div>
           <div className="flex flex-col items-center">
