@@ -35,6 +35,7 @@ const Share = ({ story, theme }) => {
   };
 
   return (
+     <div className="flex justify-center items-center space-x-4 p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg">
     <div
       className={`flex justify-center items-center space-x-4 p-2 rounded-lg ${
         theme ? 'bg-gray-850' : 'bg-white'
@@ -88,6 +89,7 @@ const Share = ({ story, theme }) => {
         {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} theme={theme} />}
       </div>
     </div>
+          </div>
   );
 };
 
