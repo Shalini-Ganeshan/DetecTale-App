@@ -1,3 +1,19 @@
+import React, { useState } from 'react';
+
+const Toast = ({ message, onClose }) => {
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black text-white p-2 rounded shadow-lg z-50">
+      {message}
+    </div>
+  );
 const Share = ({ story, theme }) => {
   const [toastMessage, setToastMessage] = useState('');
   const encodedStory = encodeURIComponent(story);
