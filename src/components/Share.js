@@ -14,6 +14,8 @@ const Toast = ({ message, onClose }) => {
       {message}
     </div>
   );
+};
+
 const Share = ({ story, theme }) => {
   const [toastMessage, setToastMessage] = useState('');
   const encodedStory = encodeURIComponent(story);
@@ -88,4 +90,5 @@ const Share = ({ story, theme }) => {
     </div>
   );
 };
-export default Share; 
+
+export default Share;
