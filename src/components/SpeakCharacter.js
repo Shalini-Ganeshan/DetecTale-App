@@ -103,7 +103,7 @@ const SpeakCharacter = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="w-full max-w-4xl p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
-        <img src={micImg} alt="micImg" loading="lazy" className="w-20 h-20 mx-auto object-cover rounded" />
+        <img src={micImg} alt="micImg"  className="w-20 h-20 mx-auto object-cover rounded" />
         <h1 className="text-2xl mb-6 text-center font-poppins">Speak Your Characters</h1>
         
         {error && (
@@ -161,7 +161,7 @@ const SpeakCharacter = () => {
               className={`px-4 py-2 font-poppins rounded ${loading ? 'bg-gray-400' : 'bg-green-500'} text-white hover:${loading ? 'bg-gray-500' : 'bg-green-600'}`}
             >
               <div className="flex flex-row gap-3">
-                <img src={owl} alt="readingOwlImg" loading="lazy" className="w-16 h-16 object-cover rounded" />
+                <img src={owl} alt="readingOwlImg" className="w-16 h-16 object-cover rounded" />
                 <div className="mt-2 p-3">
                   {loading ? "Loading..." : "Read Story"}
                 </div>
