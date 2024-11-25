@@ -131,7 +131,7 @@ const WriteCharacter = () => {
               className={`px-4 py-2 font-poppins rounded ${loading ? 'bg-gray-400' : 'bg-green-500'} text-white hover:${loading ? 'bg-gray-500' : 'bg-green-600'}`}
             >
               <div className="flex flex-row gap-3">
-                <img src={owl} alt="readingOwlImg" loading="lazy" className="w-16 h-16 object-cover rounded" />
+                <img src={owl} alt="readingOwlImg"  className="w-16 h-16 object-cover rounded" />
                 <div className="mt-3 p-3">
                   {loading ? "Loading..." : "Read Story"}
                 </div>
