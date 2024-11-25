@@ -35,61 +35,61 @@ const Share = ({ story, theme }) => {
   };
 
   return (
-     <div className="flex justify-center items-center space-x-4 p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg">
-    <div
-      className={`flex justify-center items-center space-x-4 p-2 rounded-lg ${
-        theme ? 'bg-gray-900' : 'bg-white'
-      }`}
-    >
+    <div className="flex justify-center items-center space-x-4 p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-lg">
       <div
-        className={`flex justify-center items-center space-x-4 pt-3 pb-3 pr-4 pl-4 ${
-          theme ? 'bg-gray-850' : 'bg-white'
-        } border-1 border-transparent rounded-lg bg-clip-border`}
+        className={`flex justify-center items-center space-x-4 p-2 rounded-lg ${
+          theme ? 'bg-gray-900' : 'bg-white'
+        }`}
       >
-        {/* Copy Button */}
-        <button
-          onClick={handleCopy}
-          className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
+        <div
+          className={`flex justify-center items-center space-x-4 pt-3 pb-3 pr-4 pl-4 ${
+            theme ? 'bg-gray-850' : 'bg-white'
+          } border-1 border-transparent rounded-lg bg-clip-border`}
         >
-          <i className={`fi fi-bs-copy text-2xl ${theme ? 'text-white' : 'text-black'}`}></i>
-        </button>
+          {/* Copy Button */}
+          <button
+            onClick={handleCopy}
+            className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
+          >
+            <i className={`fas fa-copy text-2xl ${theme ? 'text-white' : 'text-black'}`}></i>
+          </button>
 
-        {/* WhatsApp Button */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
-        >
-          <i
-            className={`fab fa-whatsapp text-3xl ${theme ? 'text-white' : 'text-black'}`}
-          ></i>
-        </a>
+          {/* WhatsApp Button */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
+          >
+            <i
+              className={`fab fa-whatsapp text-3xl ${theme ? 'text-white' : 'text-black'}`}
+            ></i>
+          </a>
 
-        {/* Email Button */}
-        <a
-          href={`mailto:?subject=Check this out!&body=${encodedStory}`}
-          className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
-        >
-          <i
-            className={`fi fi-bs-envelope text-2xl ${theme ? 'text-white' : 'text-black'}`}
-          ></i>
-        </a>
+          {/* Email Button */}
+          <a
+            href={`mailto:?subject=Check this out!&body=${encodedStory}`}
+            className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
+          >
+            <i
+              className={`fas fa-envelope text-2xl ${theme ? 'text-white' : 'text-black'}`}
+            ></i>
+          </a>
 
-        {/* Twitter Button */}
-        <a
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(story)}&url=${encodedStory}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
-        >
-          <i className={`fi fi-rs-dove text-2xl ${theme ? 'text-white' : 'text-black'}`}></i>
-        </a>
+          {/* Twitter Button */}
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(story)}&url=${encodedStory}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded"
+          >
+            <i className={`fab fa-twitter text-2xl ${theme ? 'text-white' : 'text-black'}`}></i>
+          </a>
 
-        {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} theme={theme} />}
+          {toastMessage && <Toast message={toastMessage} onClose={handleCloseToast} theme={theme} />}
+        </div>
       </div>
     </div>
-          </div>
   );
 };
 
