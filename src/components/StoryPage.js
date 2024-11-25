@@ -17,13 +17,8 @@ const StoryPage = () => {
 
   return (
     <div
-      className={`relative flex flex-col items-center justify-center min-h-screen p-4 md:p-8 transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundColor: darkMode ? '#1a202c' : '#f7fafc', // Dark mode background color
-      }}
+     className={`flex flex-col items-center justify-center min-h-screen p-4 md:p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}
+      style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Button to go back */}
       <button
