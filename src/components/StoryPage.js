@@ -37,7 +37,7 @@ const StoryPage = () => {
       </button>
 
       {/* Main content container */}
-      <div className={`w-full max-w-4xl p-4 md:p-6 rounded-lg shadow-lg ${darkMode ?  'bg-gray-850' : 'bg-white'}`}>
+      <div className={`w-full max-w-4xl p-4 md:p-6 rounded-lg shadow-lg ${darkMode ?  'bg-gray-900' : 'bg-white'}`}>
         <div className='flex flex-col md:flex-col items-center gap-4 md:gap-8'>
           <img src={sideImage} alt="Side" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded" />
           <Share story={story} theme={darkMode} />
