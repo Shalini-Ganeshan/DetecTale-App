@@ -25,7 +25,7 @@ const StoryPage = () => {
         onClick={() => navigate(-1)}
         className={`absolute top-2 left-2 md:top-4 md:left-4 px-2 md:px-4 py-1 md:py-2 rounded text-white focus:outline-none`}
       >
-        <img src={back} loading="lazy" alt="Back" className="w-12 h-12 md:w-16 md:h-16 object-cover rounded" />
+        <img src={back} alt="Back" className="w-12 h-12 md:w-16 md:h-16 object-cover rounded" />
       </button>
       
       {/* Dark mode toggle button */}
@@ -39,7 +39,7 @@ const StoryPage = () => {
       {/* Main content container */}
       <div className={`w-full max-w-4xl p-4 md:p-6 rounded-lg shadow-lg ${darkMode ?  'bg-gray-850' : 'bg-white'}`}>
         <div className='flex flex-col md:flex-col items-center gap-4 md:gap-8'>
-          <img src={sideImage} loading="lazy" alt="Side" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded" />
+          <img src={sideImage} alt="Side" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded" />
           <Share story={story} theme={darkMode} />
         </div>
 
