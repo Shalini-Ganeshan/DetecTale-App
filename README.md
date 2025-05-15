@@ -1,2 +1,2 @@
 # DetecTale
-Storytelling App with Image Recognition (Submitted as Mini Project)
+Storytelling App with Image & Voice Recognition (Submitted as Mini Project)
