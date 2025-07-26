@@ -150,6 +150,13 @@ const readImage = (file) => {
         </div>
 
         <div className="relative flex-grow w-full max-w-lg mx-auto rounded-lg p-4">
+                <div className="flex flex-col items-center mt-6 space-y-4">
+            <Select
+              value={selectedLanguage}
+              onChange={setSelectedLanguage}
+              options={languageOptions}
+              className="w-full"
+            />
           <div className="min-w-full h-[300px] md:h-[400px] border-4 border-blue-400 rounded-lg flex items-center justify-center relative bg-gray-100">
             {imgData ? (
               <div className="relative w-full h-full">
@@ -198,13 +205,7 @@ const readImage = (file) => {
             onChange={onSelectImage}
             className="hidden"
           />
-          <div className="flex flex-col items-center mt-6 space-y-4">
-            <Select
-              value={selectedLanguage}
-              onChange={setSelectedLanguage}
-              options={languageOptions}
-              className="w-full"
-            />
+        
             <button
               onClick={openFilePicker}
               className={`py-2 px-4 border-2 border-transparent bg-yellow-400 text-white text-lg font-semibold rounded-md shadow-md transition-transform transform hover:scale-105 ${isLoading ? 'bg-yellow-300' : 'hover:bg-yellow-500'}`}
