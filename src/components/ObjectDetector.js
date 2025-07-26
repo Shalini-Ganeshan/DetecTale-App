@@ -22,6 +22,7 @@ const ObjectDetector = ({ onStoryGenerated = () => {} }) => {
 
   const languageOptions = [
     { value: 'en', label: 'English' },
+    { value: 'ta', label: 'Tamil' },
     { value: 'te', label: 'Telugu' },
     { value: 'kn', label: 'Kannada' },
     { value: 'ml', label: 'Malayalam' },
